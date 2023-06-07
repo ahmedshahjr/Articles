@@ -44,6 +44,6 @@ namespace Options_Pattern.Controllers
             Console.WriteLine($"{CompanyName} is called from OnValueChange Method {_companyIOptionsMonitor.CreationDate}");
 
         }
-
+  
     }
 }

@@ -10,7 +10,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Adding Options Patter
-builder.Services.Configure<CompanyOptions>(builder.Configuration.GetSection(CompanyOptions.Options));
+builder.Services.Configure<CompanyOptions>(CompanyOptions.CoOperate,builder.Configuration.GetSection("Company:CoOperate"));
+builder.Services.Configure<CompanyOptions>(CompanyOptions.Individual, builder.Configuration.GetSection("Company:Individual"));
+
 
 
 
