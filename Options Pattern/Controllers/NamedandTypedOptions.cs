@@ -10,10 +10,10 @@ namespace Options_Pattern.Controllers
         private readonly CompanyOptions _individualCompany;
         private readonly CompanyOptions _coOperateCompany;
 
-        public NamedandTypedOptions(IOptions<CompanyOptions> namedOndividualOptionsAccessor, IOptions<CompanyOptions> namedCoOpearteOptionsAccessor)
+        public NamedandTypedOptions(IOptionsSnapshot<CompanyOptions> idividualOptionsAccessor, IOptionsSnapshot<CompanyOptions> CoOpearteOptionsAccessor)
         {
-            _individualCompany = namedOndividualOptionsAccessor.Value;
-            _coOperateCompany = namedCoOpearteOptionsAccessor.Value;
+            _individualCompany = idividualOptionsAccessor.Get(CompanyOptions.Individual);
+            _coOperateCompany = CoOpearteOptionsAccessor.Get(CompanyOptions.CoOperate);
 
         }
         [HttpGet("[action]")]

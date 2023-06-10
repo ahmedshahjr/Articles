@@ -7,43 +7,28 @@ namespace Options_Pattern.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly CompanyOptions _companyIOptions;
-        private readonly CompanyOptions _companyIOptionsSnapshot;
-        private readonly CompanyOptions _companyIOptionsMonitor;
+        private readonly CompanyOptions _indvidiualOptions;
+        private readonly CompanyOptions _coOperateOptions;
 
-
-        private string CompanyName=string.Empty;
-        public WeatherForecastController(IOptions<CompanyOptions> companyIOptions,
-            IOptionsSnapshot<CompanyOptions> companyIOptionsSnapshot,
-            IOptionsMonitor<CompanyOptions> companyIOptionsMonitor)
+        public WeatherForecastController(IOptionsMonitor<CompanyOptions> options)
         {
-            _companyIOptions = companyIOptions.Value;
-            _companyIOptionsSnapshot = companyIOptionsSnapshot.Value;
-            _companyIOptionsMonitor = companyIOptionsMonitor.CurrentValue;
-            //listen to onchange and call our private OnComapnyValueChange method
-            companyIOptionsMonitor.OnChange(updatedsettings => OnCompanyValueChange());
+          //  _indvidiualOptions = options.Get(CompanyOptions.Individual);
+            _coOperateOptions = options.Get(CompanyOptions.CoOperate);
+
+
         }
-        
+
         [HttpGet("[action]")]
-        public IActionResult GetOptionsPattern()
+        public IActionResult Individual()
         {
-            var optionResponse = new 
-            {
-                IOptions = _companyIOptions.Name,
-                IOptionsSnapShot = _companyIOptionsSnapshot.Name,
-                IOptionsMonitor = _companyIOptionsMonitor.Name,
-                CreationDate= _companyIOptionsMonitor.CreationDate
-            };
-            CompanyName = _companyIOptionsMonitor.Name;
-            Console.WriteLine($"{CompanyName} {_companyIOptionsMonitor.CreationDate}");
-            return Ok(optionResponse);
+            return Ok(_indvidiualOptions);
         }
-        private void OnCompanyValueChange()
+        [HttpGet("[action]")]
+        public IActionResult CoOperate()
         {
 
-            Console.WriteLine($"{CompanyName} is called from OnValueChange Method {_companyIOptionsMonitor.CreationDate}");
-
+            return Ok(_coOperateOptions);
         }
-  
+
     }
 }

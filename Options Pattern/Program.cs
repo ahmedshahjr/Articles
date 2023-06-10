@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Options_Pattern;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,10 +11,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Adding Options Patter
-builder.Services.Configure<CompanyOptions>(CompanyOptions.CoOperate,builder.Configuration.GetSection("Company:CoOperate"));
-builder.Services.Configure<CompanyOptions>(CompanyOptions.Individual, builder.Configuration.GetSection("Company:Individual"));
+builder.Services.AddOptions<CompanyOptions>(CompanyOptions.Individual)
+    .BindConfiguration($"Company:{nameof(CompanyOptions.Individual)}")
+    .ValidateDataAnnotations();
 
-
+builder.Services.AddOptions<CompanyOptions>(CompanyOptions.CoOperate)
+    .BindConfiguration($"Company:{nameof(CompanyOptions.CoOperate)}")
+    .ValidateDataAnnotations();
+    
 
 
 var app = builder.Build();
