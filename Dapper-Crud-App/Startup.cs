@@ -31,10 +31,10 @@ namespace Dapper_Crud_App
 
             services.AddControllers();
             services.AddOptionsServices();
+            services.HttpClientServices(Configuration);
             services.ScopeServices();
             services.SingletonsServices();
             services.TransientsServices();
-            services.HttpClientServices(Configuration);
 
             services.AddSwaggerGen(c =>
             {

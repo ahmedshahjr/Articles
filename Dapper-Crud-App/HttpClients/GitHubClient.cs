@@ -8,12 +8,11 @@ namespace Dapper_Crud_App.HttpClients
 {
     public class GitHubClient : IGitHubClient
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly HttpClient _httpClient;   
-        public GitHubClient(IHttpClientFactory httpClientFactory)
+        private readonly HttpClient _httpClient;
+  
+        public GitHubClient(HttpClient httpClient)
         {
-            _httpClientFactory = httpClientFactory;
-            _httpClient = _httpClientFactory.CreateClient();
+            _httpClient = httpClient;
         }
 
         public async Task<string> OnGetGitBranches()

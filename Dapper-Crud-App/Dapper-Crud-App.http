@@ -1,0 +1,19 @@
+﻿@Dapper-Crud-App_HostAddress = https://localhost:44359
+
+GET {{Dapper-Crud-App_HostAddress}}/api/github
+
+###
+
+POST {{Dapper-Crud-App_HostAddress}}/api/user
+Content-Type: application/json
+
+{
+ "Name":"test....",
+ "Description":"desc,,,,"
+}
+
+###
+
+GET {{Dapper-Crud-App_HostAddress}}/api/user
+
+###
