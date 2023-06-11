@@ -3,3 +3,7 @@ Options Pattern/bin/
 Options Pattern/obj/Options Pattern.csproj.nuget.dgspec.json
 Options Pattern/obj/
 /Options Pattern/Options Pattern.csproj.user
+/Dapper-Crud-App/bin/Debug/net5.0
+/Dapper-Crud-App/obj/Debug/net5.0
+/Dapper-Crud-App/obj
+*.user
