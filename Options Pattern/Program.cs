@@ -13,12 +13,15 @@ builder.Services.AddSwaggerGen();
 // Adding Options Patter
 builder.Services.AddOptions<CompanyOptions>(CompanyOptions.Individual)
     .BindConfiguration($"Company:{nameof(CompanyOptions.Individual)}")
-    .ValidateDataAnnotations();
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
 
-builder.Services.AddOptions<CompanyOptions>(CompanyOptions.CoOperate)
-    .BindConfiguration($"Company:{nameof(CompanyOptions.CoOperate)}")
-    .ValidateDataAnnotations();
-    
+// Adding Options Patter
+builder.Services.AddOptions<CompanyOptions>(CompanyOptions.Individual)
+    .BindConfiguration($"Company:{nameof(CompanyOptions.Individual)}")
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
 
 
 var app = builder.Build();
