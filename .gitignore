@@ -7,3 +7,5 @@ Options Pattern/obj/
 /Dapper-Crud-App/obj/Debug/net5.0
 /Dapper-Crud-App/obj
 *.user
+/CodeSnippetts/obj
+/CodeSnippetts/bin/Debug/net8.0
