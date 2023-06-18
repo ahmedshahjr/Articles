@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 
-namespace Dapper_Crud_App.Repository
+namespace Dapper_Crud_App.Repository.Infrastructure
 {
     public interface IDapperFastCrudUserRepository
     {

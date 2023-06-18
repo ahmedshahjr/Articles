@@ -9,8 +9,9 @@ using System.Data.SqlClient;
 using Dapper_Crud_App.Entities;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using Dapper_Crud_App.Repository.Infrastructure;
 
-namespace Dapper_Crud_App.Repository
+namespace Dapper_Crud_App.Repository.Implementation
 {
     public class DapperUserRepository : IDapperUserRepository
     {
@@ -29,12 +30,17 @@ namespace Dapper_Crud_App.Repository
         {
             try
             {
-                var query = "Insert into Users (Name,Description) VALUES (@Name,@Description)";
+                var user = new User
+                {
+                    Description = entity.Description,
+                    Name = entity.Name,
+                };
+                var query = "Insert into Users (Id,Name,Description) VALUES (@Id,@Name,@Description)";
                 using (var db = new SqlConnection(ConnectionString))
                 {
                     await db.OpenAsync();
-                    return await db.ExecuteAsync(query, entity);
-                
+                    return await db.ExecuteAsync(query, user);
+
                 }
             }
             catch (Exception e)
@@ -42,7 +48,7 @@ namespace Dapper_Crud_App.Repository
 
                 throw;
             }
-       
+
         }
         public async Task<User> GetAsync(Guid id)
         {

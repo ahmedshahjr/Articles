@@ -4,7 +4,7 @@ namespace Dapper_Crud_App.Entities
 {
     public class User : UserInsert
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } =Guid.NewGuid();
     }
     public class UserInsert
     {
@@ -12,10 +12,11 @@ namespace Dapper_Crud_App.Entities
         public string Description { get; set; }
     }
 
-    //    Create table Users
-    //    (
-    //Id UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
-    //Name nvarchar(max),
-    //Description nvarchar(max)
-    //)
+//    Create table Users
+//    (
+//Id UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() PRIMARY KEY,
+//Name nvarchar(max),
+//Description nvarchar(max)
+
+//)
 }

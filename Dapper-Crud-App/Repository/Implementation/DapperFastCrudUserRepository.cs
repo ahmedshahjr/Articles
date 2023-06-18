@@ -8,8 +8,9 @@ using Dapper_Crud_App.Options;
 using Microsoft.Extensions.Options;
 using Dapper.FastCrud;
 using System.Linq;
+using Dapper_Crud_App.Repository.Infrastructure;
 
-namespace Dapper_Crud_App.Repository
+namespace Dapper_Crud_App.Repository.Implementation
 {
     public class DapperFastCrudUserRepository : IDapperFastCrudUserRepository
     {
@@ -27,10 +28,10 @@ namespace Dapper_Crud_App.Repository
             var response = 0;
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                var result=await  db.DeleteAsync<User>(new User { Id = id });
+                var result = await db.DeleteAsync(new User { Id = id });
                 if (result)
                 {
-                    response=1;
+                    response = 1;
                 }
                 return response;
             }
@@ -50,7 +51,7 @@ namespace Dapper_Crud_App.Repository
         {
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                User author = await db.GetAsync<User>(new User { Id = id });
+                User author = await db.GetAsync(new User { Id = id });
 
                 return author;
             }
@@ -65,7 +66,7 @@ namespace Dapper_Crud_App.Repository
                     Name = entity.Name,
                     Description = entity.Description,
                 };
-                await db.InsertAsync<User>(user);
+                await db.InsertAsync(user);
             }
             return 1;
         }
@@ -74,7 +75,7 @@ namespace Dapper_Crud_App.Repository
         {
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-              await  db.UpdateAsync<User>(entity);
+                await db.UpdateAsync(entity);
             }
             return entity;
         }

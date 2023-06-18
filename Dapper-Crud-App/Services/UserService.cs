@@ -1,5 +1,5 @@
 ﻿using Dapper_Crud_App.Entities;
-using Dapper_Crud_App.Repository;
+using Dapper_Crud_App.Repository.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

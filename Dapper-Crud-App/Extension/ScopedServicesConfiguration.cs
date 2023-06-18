@@ -1,6 +1,7 @@
 ﻿using Dapper_Crud_App.Delegates;
 using Dapper_Crud_App.Options;
-using Dapper_Crud_App.Repository;
+using Dapper_Crud_App.Repository.Implementation;
+using Dapper_Crud_App.Repository.Infrastructure;
 using Dapper_Crud_App.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
