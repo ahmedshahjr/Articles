@@ -1,5 +1,8 @@
 using Hangfire;
-using HangFIre.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +19,8 @@ builder.Services.AddHangfire(hangfire =>
     hangfire.UseSqlServerStorage(
                  builder.Configuration.GetConnectionString("DBConnection"));
 });
-builder.Services.AddScoped<IJobTestService, JobTestService>();
+builder.Services.AddHangfireServer();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

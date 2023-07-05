@@ -1,3 +1,5 @@
+using System;
+
 namespace HangFIre
 {
     public class WeatherForecast
