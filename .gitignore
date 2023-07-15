@@ -18,3 +18,5 @@ Options Pattern/obj/
 /CodeSnippetts/bin/Release/net8.0
 /Dapper-Crud-App/bin/Release/net5.0
 /GrpcClient/bin/Debug/net8.0
+/GrpcServer/bin
+/GrpcServer/obj
