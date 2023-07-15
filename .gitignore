@@ -12,3 +12,9 @@ Options Pattern/obj/
 /HangFIre/obj
 /HangFIre/bin/Debug/net6.0
 /HangFIre/bin/Debug/net8.0
+/GrpcClient/bin/Release/net8.0
+/GrpcClient/obj
+/HangFIre/bin/Release/net8.0
+/CodeSnippetts/bin/Release/net8.0
+/Dapper-Crud-App/bin/Release/net5.0
+/GrpcClient/bin/Debug/net8.0

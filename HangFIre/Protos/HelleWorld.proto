@@ -1,0 +1,27 @@
+//This line specifies the version of the Protocol Buffers language that is used in the file.
+syntax = "proto3";
+
+//This line specifies the C# namespace that will be used to generate the code for the messages and services defined in the file.
+option csharp_namespace = "HangFire.Protos";
+
+//This line specifies the package name for the messages and services defined in the file.
+package HelloWorld;
+
+//This line defines a service called HelloWorld. The service has a single method called SayHello. The SayHello method takes a HelloRequest message as input and returns a HelloReply message as output.
+service HelloWorld {
+  // Sends a Hello to Server
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+//This line defines a message called HelloRequest. The HelloRequest message has a single field called message. The message field is a string that contains the input we will send
+//request payload
+message HelloRequest {
+  string message = 1;
+}
+//This line defines a message called HelloReply. The HelloReply message has a single field called message. The message field is a string that contains the message that the server sent to the client.
+//reponse payload
+message HelloReply {
+  string message = 1;
+}
+
+
+//The number 1 in the line string message = 1; refers to the field number of the message field. In Protocol Buffers, field numbers are used to uniquely identify fields in messages. The field number 1 is the first field in the HelloRequest/HelloReply message.

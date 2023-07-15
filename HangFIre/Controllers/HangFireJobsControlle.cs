@@ -9,11 +9,9 @@ namespace HangFIre.Controllers
     [ApiController]
     public class HangFireJobsControlle : ControllerBase
     {
-        private readonly IBackgroundJobClient _backgroundJobClient;
 
-        public HangFireJobsControlle(IBackgroundJobClient backgroundJobClient)
+        public HangFireJobsControlle()
         {
-            _backgroundJobClient = backgroundJobClient;
         }
         [HttpGet]
         [Route("FireForgetJobs")]
@@ -21,7 +19,7 @@ namespace HangFIre.Controllers
         {
             //Fire-and-forget jobs are executed only once and almost immediately after creation.
             var jobId = BackgroundJob.Enqueue(() => Console.WriteLine("Fire And Forget Job"));
-            return $"Job ID: {jobId}. Fire And Forget jobs Executed!";
+            return $"Job ID: {123}. Fire And Forget jobs Executed!";
         }
 
         [HttpGet]
