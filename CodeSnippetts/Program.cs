@@ -1,22 +1,25 @@
-﻿// See https://aka.ms/new-console-template for more information
+var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-string north  ="north";
-string south = "south";
+var app = builder.Build();
 
-string longMessage = """
-    This is a long message.
-    It has several lines.
-        Some are indented
-                more than others.
-    Some should start at the first column.
-    Some have "quoted text" in them. 
-    """;
-string shortMessage = $$""" 
-{{Environment.NewLine}}Multiple $ characters denote how many consecutive 
-braces start and end the interpolation. e.g {{north}} {{{south}}} 
-""";
-Console.WriteLine(longMessage);
-Console.WriteLine(shortMessage);
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
