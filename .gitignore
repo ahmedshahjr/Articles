@@ -20,3 +20,13 @@ Options Pattern/obj/
 /GrpcClient/bin/Debug/net8.0
 /GrpcServer/bin
 /GrpcServer/obj
+/RabbitMq/Service1/obj
+/RabbitMq/Service2/bin/Debug/net8.0
+/RabbitMq/Service3/obj
+/RabbitMq/InfraStrutucture.EventBus/obj
+/RabbitMq/Service2/bin/Release/net8.0
+/Nuget Packages/obj/Release/net8.0
+/Nuget Packages/obj
+/Nuget Packages/bin/Release
+/RabbitMq/Service1/bin
+/RabbitMq/Service2/obj
