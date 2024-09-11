@@ -30,3 +30,5 @@ Options Pattern/obj/
 /Nuget Packages/bin/Release
 /RabbitMq/Service1/bin
 /RabbitMq/Service2/obj
+/KeyedServices/obj
+/KeyedServices/bin/Debug/net8.0
